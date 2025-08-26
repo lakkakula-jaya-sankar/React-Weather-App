@@ -1,0 +1,23 @@
+.se-bar{
+    border: 1px solid black;
+    margin: 1%;
+    text-align: center;
+    width: 50%;
+    margin: 2% auto;
+    border-radius: 30px;
+}
+.se-bar-input{
+    width: 90%;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+}
+@media (min-width: 300px) and (max-width: 600px){
+    .se-bar-input{
+        width: 80%;
+    }
+    .se-bar{
+        margin: 4% auto;
+    }
+}
