@@ -6,6 +6,9 @@
     margin: 2% auto;
     border-radius: 30px;
 }
+input{
+    background-color: transparent;
+}
 .se-bar-input{
     width: 90%;
     outline: none;
