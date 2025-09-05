@@ -165,27 +165,27 @@ export default function Main(){
             </div>
 
             <div className="row m-3 gy-3 justify-content-evenly">
-                <div className="col-5 col-md-2 p-4 border border-lg rounded-4 shadow-lg text-center">
+                <div className="col-5 col-md-2 p-3 border border-lg rounded-4 shadow-lg text-center">
                     <h4>{getAll.time[1]}</h4>
-                    <div><img src={getAll.weather_codes[1]} style={{width: "40px"}}></img></div>
+                    <div><img src={getAll.weather_codes[1]} style={{width: "50px"}}></img></div>
                     <p>Min : {getAll.min_temp[1]}&deg; C</p>
                     <p>Max : {getAll.max_temp[1]}&deg; C</p>
                 </div>
-                <div className="col-5 col-md-2 p-4 border border-lg rounded-4 shadow-lg text-center">
+                <div className="col-5 col-md-2 p-3 border border-lg rounded-4 shadow-lg text-center">
                     <h4>{getAll.time[2]}</h4>
-                    <div><img src={getAll.weather_codes[2]} style={{width: "40px"}}></img></div>
+                    <div><img src={getAll.weather_codes[2]} style={{width: "50px"}}></img></div>
                     <p>Min : {getAll.min_temp[2]}&deg; C</p>
                     <p>Max : {getAll.max_temp[2]}&deg; C</p>
                 </div>
-                <div className="col-5 col-md-2 p-4 border border-lg rounded-4 shadow-lg text-center">
+                <div className="col-5 col-md-2 p-3 border border-lg rounded-4 shadow-lg text-center">
                     <h4>{getAll.time[3]}</h4>
-                    <div><img src={getAll.weather_codes[3]} style={{width: "40px"}}></img></div>
+                    <div><img src={getAll.weather_codes[3]} style={{width: "50px"}}></img></div>
                     <p>Min : {getAll.min_temp[3]}&deg; C</p>
                     <p>Max : {getAll.max_temp[3]}&deg; C</p>
                 </div>
-                <div className="col-5 col-md-2 p-4 border border-lg rounded-4 shadow-lg text-center">
+                <div className="col-5 col-md-2 p-3 border border-lg rounded-4 shadow-lg text-center">
                     <h4>{getAll.time[4]}</h4>
-                    <div><img src={getAll.weather_codes[4]} style={{width: "40px"}}></img></div>
+                    <div><img src={getAll.weather_codes[4]} style={{width: "50px"}}></img></div>
                     <p>Min : {getAll.min_temp[4]}&deg; C</p>
                     <p>Max : {getAll.max_temp[4]}&deg; C</p>
                 </div>
