@@ -74,6 +74,8 @@ export default function Main(){
     function imggen(e){
         let c = new Date();
         let h = new Date(getAll.time[0]).getHours();
+        let z = new Date(getAll.time[0]);
+
         if(e == 0 || e == 1){
             if(h < 6 || h > 18)
                 return 'night.svg';
@@ -81,7 +83,7 @@ export default function Main(){
                 return 'day.svg';
         }
         else if(e == 2){
-            if(c.getDate() == h.getDate()){
+            if(c.getDate() == z.getDate()){
                 if(h < 6 || h > 18)
                     return 'partly_cloudy_night.svg';
                 else
