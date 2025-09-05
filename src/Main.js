@@ -90,7 +90,7 @@ export default function Main(){
                     return 'partly_cloudy.svg';
             }
             else{ 
-                if(c != 0)
+                if(c.getHours() != 0)
                     return 'partly_cloudy_night.svg';
                 else
                     return 'partly_cloudy.svg';
