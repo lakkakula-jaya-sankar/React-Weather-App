@@ -2,7 +2,7 @@ import { use, useState } from "react"
 import './Main.css';
 
 export default function Main(){
-    const [getC, setC] = useState('City');
+    const [getC, setC] = useState('');
     const [getAll, setAll] = useState({
                 temp: 'Temperature',
                 sunrise: 'Sunrise',
@@ -15,7 +15,8 @@ export default function Main(){
                 humidty: 'Humidity',
                 uv_index: 'UV index',
                 weather_codes: ['day.svg','day.svg','day.svg','day.svg','day.svg'],
-                current_time: ''
+                current_time: '',
+                city_name: 'City Name'
     });
 
     function dont(e){
@@ -25,11 +26,11 @@ export default function Main(){
     function getLatLon(){
         fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${getC}&count=10&language=en&format=json`)
         .then(data => data.json())
-        .then(dat => fetch_data(dat.results[0].latitude, dat.results[0].longitude))
+        .then(dat => fetch_data(dat.results[0].latitude, dat.results[0].longitude, getC))
         .catch(err => alert('Enter Valid City Name....'))
     }
 
-    function fetch_data(lat, lon){
+    function fetch_data(lat, lon, city){
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code,sunrise,sunset,temperature_2m_max,temperature_2m_min,uv_index_max&hourly=temperature_2m&current=wind_speed_10m,temperature_2m,weather_code,relative_humidity_2m&timezone=Asia/Kolkata`)
         .then(data => data.json())
         .then((data) => {
@@ -45,7 +46,8 @@ export default function Main(){
                 humidty: data.current.relative_humidity_2m,
                 uv_index: data.daily.uv_index_max[0],
                 weather_codes: data.daily.weather_code,
-                current_time: data.current.time
+                current_time: data.current.time,
+                city_name: city
             };
 
             let arr = [];
@@ -55,7 +57,6 @@ export default function Main(){
 
             x.weather_codes = arr;
             setAll(x);
-            console.log(x);
             return;
         })
         .catch(err => console.log(err))
@@ -128,7 +129,7 @@ export default function Main(){
                     </div>
                     <div className="row align-items-center mb-3">
                         <div className="col-2"><img src="location.svg" style={{width: "35px"}}></img></div>
-                        <div className="col-10"><h4 className="fw-normal">{getC}</h4></div>
+                        <div className="col-10"><h4 className="fw-normal">{getAll.city_name}</h4></div>
                     </div>
                     <div className="row align-items-center my-2">
                         <div className="col-2"><img src="sunrise_icon.svg" style={{width: "30px"}}></img></div>
@@ -166,25 +167,25 @@ export default function Main(){
             <div className="row m-3 gy-3 justify-content-evenly">
                 <div className="col-5 col-md-2 p-4 border border-lg rounded-4 shadow-lg text-center">
                     <h4>{getAll.time[1]}</h4>
-                    <div><img src={getAll.weather_codes[1]}></img></div>
+                    <div><img src={getAll.weather_codes[1]} style={{width: "40px"}}></img></div>
                     <p>Min : {getAll.min_temp[1]}&deg; C</p>
                     <p>Max : {getAll.max_temp[1]}&deg; C</p>
                 </div>
                 <div className="col-5 col-md-2 p-4 border border-lg rounded-4 shadow-lg text-center">
                     <h4>{getAll.time[2]}</h4>
-                    <div><img src={getAll.weather_codes[2]}></img></div>
+                    <div><img src={getAll.weather_codes[2]} style={{width: "40px"}}></img></div>
                     <p>Min : {getAll.min_temp[2]}&deg; C</p>
                     <p>Max : {getAll.max_temp[2]}&deg; C</p>
                 </div>
                 <div className="col-5 col-md-2 p-4 border border-lg rounded-4 shadow-lg text-center">
                     <h4>{getAll.time[3]}</h4>
-                    <div><img src={getAll.weather_codes[3]}></img></div>
+                    <div><img src={getAll.weather_codes[3]} style={{width: "40px"}}></img></div>
                     <p>Min : {getAll.min_temp[3]}&deg; C</p>
                     <p>Max : {getAll.max_temp[3]}&deg; C</p>
                 </div>
                 <div className="col-5 col-md-2 p-4 border border-lg rounded-4 shadow-lg text-center">
                     <h4>{getAll.time[4]}</h4>
-                    <div><img src={getAll.weather_codes[4]}></img></div>
+                    <div><img src={getAll.weather_codes[4]} style={{width: "40px"}}></img></div>
                     <p>Min : {getAll.min_temp[4]}&deg; C</p>
                     <p>Max : {getAll.max_temp[4]}&deg; C</p>
                 </div>
