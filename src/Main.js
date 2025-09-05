@@ -25,7 +25,7 @@ export default function Main(){
         fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${getC}&count=10&language=en&format=json`)
         .then(data => data.json())
         .then(dat => fetch_data(dat.results[0].latitude, dat.results[0].longitude))
-        .catch(err => console.log(err))
+        .catch(err => alert('Enter Valid City Name....'))
     }
 
     function fetch_data(lat, lon){
