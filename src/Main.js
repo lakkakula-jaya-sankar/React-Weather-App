@@ -81,7 +81,7 @@ export default function Main(){
                 return 'day.svg';
         }
         else if(e == 2){
-            if(c.getDate == h.getDate()){
+            if(c.getDate() == h.getDate()){
                 if(h < 6 || h > 18)
                     return 'partly_cloudy_night.svg';
                 else
