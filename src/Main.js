@@ -14,7 +14,8 @@ export default function Main(){
                 wind_speed: 'wind speed',
                 humidty: 'Humidity',
                 uv_index: 'UV index',
-                weather_codes: ['day.svg','day.svg','day.svg','day.svg','day.svg']
+                weather_codes: ['day.svg','day.svg','day.svg','day.svg','day.svg'],
+                current_time: ''
     });
 
     function dont(e){
@@ -43,7 +44,8 @@ export default function Main(){
                 wind_speed: data.current.wind_speed_10m,
                 humidty: data.current.relative_humidity_2m,
                 uv_index: data.daily.uv_index_max[0],
-                weather_codes: data.daily.weather_code
+                weather_codes: data.daily.weather_code,
+                current_time: data.current.time
             };
 
             let arr = [];
@@ -53,6 +55,7 @@ export default function Main(){
 
             x.weather_codes = arr;
             setAll(x);
+            console.log(x);
             return;
         })
         .catch(err => console.log(err))
@@ -73,7 +76,7 @@ export default function Main(){
 
     function imggen(e){
         let c = new Date();
-        let h = new Date(getAll.time[0]).getHours();
+        let h = new Date(getAll.current_time).getHours();
         let z = new Date(getAll.time[0]);
 
         if(e == 0 || e == 1){
