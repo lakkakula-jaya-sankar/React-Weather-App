@@ -2,6 +2,10 @@
 
 This is a React-based Weather Forecast Application that allows users to search for any city and view real-time weather conditions along with a 5-day forecast. The application fetches live data from the Open-Meteo API and presents it in a clean, responsive, and user-friendly interface.
 
+### Deployment Link
+
+(https://lakkakula-jaya-sankar.github.io/React-Weather-App/)
+
 ### 🚀 Features
 
 🔍 City-based weather search
@@ -58,9 +62,6 @@ Dynamically updates UI without page reloads.
 
 Clean component-based architecture.
 
-### Deployment Link
-
-Add screenshots here to showcase the UI.
 
 ### 📦 Installation & Run
 npm install
